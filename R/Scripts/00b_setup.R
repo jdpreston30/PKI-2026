@@ -23,12 +23,12 @@ options(
   datatable.print.class = config$analysis$datatable_options$print_class,
   datatable.print.keys  = config$analysis$datatable_options$print_keys
 )
-#+ 0b.3: Package conflict resolution
-# Explicitly namespace functions that conflict across packages.
-# Uncomment and add to this section as needed.
-# filter  <- dplyr::filter
-# select  <- dplyr::select
-# rename  <- dplyr::rename
-# mutate  <- dplyr::mutate
-# [ADD CONFLICT RESOLUTIONS HERE]
+#+ 0b.3: Package conflict resolution (via conflicted)
+conflicts_prefer(dplyr::filter)
+conflicts_prefer(dplyr::select)
+conflicts_prefer(dplyr::rename)
+conflicts_prefer(dplyr::mutate)
+conflicts_prefer(dplyr::recode)
+#+ 0b.4: Resolve data paths from config
+raw_path <- config$paths$raw_data
 cat("Setup complete. Pipeline ready.\n")

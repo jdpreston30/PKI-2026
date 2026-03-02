@@ -20,8 +20,7 @@ paths:
   base_data_path: "{user_home}/{onedrive_path}/Research/Manuscripts and Projects/Grady/Penetrating Kidney Injuries/AJS_PKI_Manuscript"
 
   # Raw data
-  raw_data:       "{base_data_path}/raw_data/PKI_JDP.xlsx"
-  raw_data_sheet: "Final"
+  raw_data:       "{base_data_path}/raw_data/PKI_JDP_6_28_25.xlsx"
 
   # Output paths (relative to project root — fast local I/O)
   output:     "./Outputs"
@@ -29,7 +28,7 @@ paths:
   tables:     "Outputs/Tables"
 
   # OneDrive output sync location (for final figures)
-  figures_onedrive: "{user_home}/{onedrive_path}/Research/[ENTER_PROJECT_DATA_PATH]/Figures"
+  figures_onedrive: "{base_data_path}/Figures"
 
   # Script and utility paths (do not change)
   scripts: "R/Scripts/"

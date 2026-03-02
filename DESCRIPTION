@@ -7,15 +7,16 @@ Depends:
     R (>= 4.5.0)
 Imports:
     car,
+    conflicted,
     cowplot,
     dplyr,
     ggplot2,
     readxl,
     stringr,
     tibble,
-    TernTablesR
+    TernTables
 Remotes:
-    jdpreston30/TernTablesR
+    jdpreston30/TernTables
 SystemRequirements:
     TinyTeX (LaTeX distribution) - automatically installed via tinytex::install_tinytex() if not present
 Encoding: UTF-8

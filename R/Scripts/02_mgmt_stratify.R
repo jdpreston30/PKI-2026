@@ -9,7 +9,7 @@ T2 <- ternG(
   round_intg = FALSE,
   factor_order = "levels",
   force_ordinal = c("AAST Grade"),
-  consider_normality = FALSE,
+  consider_normality = "ROBUST",
   methods_doc = FALSE,
   show_total = FALSE,
   group_order = c("Conservative Management", "Interventional Radiology", "Operative Management"),

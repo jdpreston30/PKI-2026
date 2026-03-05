@@ -416,13 +416,15 @@
     },
     "TernTables": {
       "Package": "TernTables",
-      "Version": "1.4.0.9001",
+      "Version": "1.6.3.9006",
       "Source": "GitHub",
       "Type": "Package",
       "Title": "Publication-Ready Summary Tables and Statistical Testing for Clinical Research",
       "Authors@R": "c( person(\"Joshua D.\", \"Preston\", email = \"joshua.preston@emory.edu\", role = c(\"aut\", \"cre\"), comment = c(ORCID = \"0000-0001-9834-3017\")), person(\"Helen\", \"Abadiotakis\", role = \"aut\", comment = c(ORCID = \"0009-0002-8268-927X\")), person(\"Ailin\", \"Tang\", role = \"aut\", comment = c(ORCID = \"0009-0007-8715-1678\")), person(\"Maria V.\", \"Aslam\", role = \"aut\", comment = c(ORCID = \"0000-0002-0036-3851\")), person(\"Clayton J.\", \"Rust\", role = \"aut\", comment = c(ORCID = \"0000-0001-5929-0733\")), person(\"Joshua L.\", \"Chan\", role = \"aut\", comment = c(ORCID = \"0000-0001-7220-561X\")) )",
-      "Description": "Generates publication-ready summary tables for clinical research,  supporting descriptive summaries and comparisons across two or three groups.  The package streamlines the analytical workflow by detecting variable types  and applying appropriate statistical tests (Welch t-test, Wilcoxon rank-sum,  Welch ANOVA, Kruskal-Wallis, Chi-squared, or Fisher's exact test). Results are  formatted as 'tibble' objects and can be exported to Word or Excel using  the 'officer', 'flextable', and 'writexl' packages.",
+      "Description": "Generates publication-ready summary tables for clinical research,  supporting descriptive summaries and comparisons across two or three groups.  The package streamlines the analytical workflow by detecting variable types  and applying appropriate statistical tests (Welch t-test, Wilcoxon rank-sum,  Welch ANOVA, Kruskal-Wallis, Chi-squared, or Fisher's exact test). Results are  formatted as 'tibble' objects and can be exported to 'Word' or 'Excel' using the 'officer', 'flextable', and 'writexl' packages. Optional pairwise post-hoc testing for three-group comparisons (Games-Howell and Dunn's test) is available via the 'rstatix' package. Example data are derived from the landmark adjuvant colon cancer trial described in Moertel et al. (1990) <doi:10.1056/NEJM199002083220602>.",
       "License": "MIT + file LICENSE",
+      "URL": "https://github.com/jdpreston30/TernTables, https://tern-tables.com/",
+      "BugReports": "https://github.com/jdpreston30/TernTables/issues",
       "Encoding": "UTF-8",
       "RoxygenNote": "7.3.3",
       "Imports": [
@@ -440,7 +442,9 @@
       ],
       "Suggests": [
         "knitr",
+        "multcompView",
         "rmarkdown",
+        "rstatix",
         "survival",
         "testthat (>= 3.0.0)"
       ],
@@ -450,15 +454,14 @@
       ],
       "LazyData": "true",
       "Config/testthat/edition": "3",
+      "Author": "Joshua D. Preston [aut, cre] (ORCID: <https://orcid.org/0000-0001-9834-3017>), Helen Abadiotakis [aut] (ORCID: <https://orcid.org/0009-0002-8268-927X>), Ailin Tang [aut] (ORCID: <https://orcid.org/0009-0007-8715-1678>), Maria V. Aslam [aut] (ORCID: <https://orcid.org/0000-0002-0036-3851>), Clayton J. Rust [aut] (ORCID: <https://orcid.org/0000-0001-5929-0733>), Joshua L. Chan [aut] (ORCID: <https://orcid.org/0000-0001-7220-561X>)",
+      "Maintainer": "Joshua D. Preston <joshua.preston@emory.edu>",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
-      "RemoteRepo": "TernTables",
       "RemoteUsername": "jdpreston30",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "137788b9ead44dca179545f906b64dd79bf370ee",
-      "NeedsCompilation": "no",
-      "Author": "Joshua D. Preston [aut, cre] (ORCID: <https://orcid.org/0000-0001-9834-3017>), Helen Abadiotakis [aut] (ORCID: <https://orcid.org/0009-0002-8268-927X>), Ailin Tang [aut] (ORCID: <https://orcid.org/0009-0007-8715-1678>), Maria V. Aslam [aut] (ORCID: <https://orcid.org/0000-0002-0036-3851>), Clayton J. Rust [aut] (ORCID: <https://orcid.org/0000-0001-5929-0733>), Joshua L. Chan [aut] (ORCID: <https://orcid.org/0000-0001-7220-561X>)",
-      "Maintainer": "Joshua D. Preston <joshua.preston@emory.edu>"
+      "RemoteRepo": "TernTables",
+      "RemoteRef": "main",
+      "RemoteSha": "c180f7102d163dd8736ed83046714ffa54e679a4"
     },
     "abind": {
       "Package": "abind",
@@ -3284,53 +3287,6 @@
       "NeedsCompilation": "no",
       "Repository": "CRAN"
     },
-    "remotes": {
-      "Package": "remotes",
-      "Version": "2.5.0",
-      "Source": "Repository",
-      "Title": "R Package Installation from Remote Repositories, Including 'GitHub'",
-      "Authors@R": "c( person(\"Gábor\", \"Csárdi\", , \"csardi.gabor@gmail.com\", role = c(\"aut\", \"cre\")), person(\"Jim\", \"Hester\", role = \"aut\"), person(\"Hadley\", \"Wickham\", role = \"aut\"), person(\"Winston\", \"Chang\", role = \"aut\"), person(\"Martin\", \"Morgan\", role = \"aut\"), person(\"Dan\", \"Tenenbaum\", role = \"aut\"), person(\"Posit Software, PBC\", role = c(\"cph\", \"fnd\")), person(\"Ascent Digital Services\", role = \"cph\") )",
-      "Description": "Download and install R packages stored in 'GitHub', 'GitLab', 'Bitbucket', 'Bioconductor', or plain 'subversion' or 'git' repositories.  This package provides the 'install_*' functions in 'devtools'. Indeed most of the code was copied over from 'devtools'.",
-      "License": "MIT + file LICENSE",
-      "URL": "https://remotes.r-lib.org, https://github.com/r-lib/remotes#readme",
-      "BugReports": "https://github.com/r-lib/remotes/issues",
-      "Depends": [
-        "R (>= 3.0.0)"
-      ],
-      "Imports": [
-        "methods",
-        "stats",
-        "tools",
-        "utils"
-      ],
-      "Suggests": [
-        "brew",
-        "callr",
-        "codetools",
-        "covr",
-        "curl",
-        "git2r (>= 0.23.0)",
-        "knitr",
-        "mockery",
-        "pingr",
-        "pkgbuild (>= 1.0.1)",
-        "rmarkdown",
-        "rprojroot",
-        "testthat (>= 3.0.0)",
-        "webfakes",
-        "withr"
-      ],
-      "VignetteBuilder": "knitr",
-      "Config/Needs/website": "tidyverse/tidytemplate",
-      "Config/testthat/edition": "3",
-      "Encoding": "UTF-8",
-      "RoxygenNote": "7.2.3",
-      "SystemRequirements": "Subversion for install_svn, git for install_git",
-      "NeedsCompilation": "no",
-      "Author": "Gábor Csárdi [aut, cre], Jim Hester [aut], Hadley Wickham [aut], Winston Chang [aut], Martin Morgan [aut], Dan Tenenbaum [aut], Posit Software, PBC [cph, fnd], Ascent Digital Services [cph]",
-      "Maintainer": "Gábor Csárdi <csardi.gabor@gmail.com>",
-      "Repository": "CRAN"
-    },
     "renv": {
       "Package": "renv",
       "Version": "1.1.5",
@@ -3737,7 +3693,7 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "1.3.1",
+      "Version": "1.3.2",
       "Source": "Repository",
       "Type": "Package",
       "Title": "System Native Font Finding",

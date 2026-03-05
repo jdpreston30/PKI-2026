@@ -15,8 +15,4 @@ Imports:
     stringr,
     tibble,
     TernTables
-Remotes:
-    jdpreston30/TernTables
-SystemRequirements:
-    TinyTeX (LaTeX distribution) - automatically installed via tinytex::install_tinytex() if not present
 Encoding: UTF-8

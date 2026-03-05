@@ -2,6 +2,21 @@
 # Interactive helpers for development use. Sourced automatically via 00b_setup.R.
 # These are NOT part of the reproducible pipeline — convenience only.
 
+#' Compile Tables
+#'
+#' Runs the full table pipeline in sequence:
+#' 01_descriptive, 02_mgmt_stratify, 03_grade_stratify, 06_compile_tables.
+#'
+#' @examples
+#' ct()
+ct <- function() {
+  source("R/Scripts/01_descriptive.R")
+  source("R/Scripts/02_mgmt_stratify.R")
+  source("R/Scripts/03_grade_stratify.R")
+  source("R/Scripts/06_compile_tables.R")
+  invisible(NULL)
+}
+
 #' Solve Math Expressions in Render Files
 #'
 #' Crawls through render_figures.R (or specified file) and evaluates all

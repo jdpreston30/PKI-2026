@@ -1,13 +1,30 @@
 #* 1: Descriptive Statistics
-#+ 1.1: Create descriptive statistics table
+#+ 1.1: Prepare data for descriptive table
+T1_data <- raw_named |>
+  select(
+    # Demographics
+    Age, `Gender (Male)`, BMI,
+    # Injury features and vital signs
+    `AAST Grade`, GCS, MAP, SBP, DBP, HR, ISS,
+    # Lab values
+    initial_lactate, `Max Lactate (24 h)`, initial_base_deficit,
+    # Blood products (24 h)
+    MTP, RBC, FFP, Platelets, Cryoprecipitate, `Whole Blood`, TXA,
+    # Clinical course
+    Survival, `Renal Salvage`, `Index Management Success`, `Index Management Strategy`,
+    AKI, highest_Cr, `Ventilator Days`, `ICU LOS`, `Hospital LOS`, `Return to ED (30 d)`
+  )
+#+ 1.2: Create descriptive statistics table
 T1 <- ternD(
-  data = table_data,
-  round_intg = TRUE,
-  factor_order = "levels",
-  consider_normality = TRUE,
+  data = T1_data,
+  consider_normality = "ROBUST",
+  round_intg = FALSE,
+  open_doc = TRUE,
   table_font_size = 9,
+  force_ordinal = c("AAST Grade"),
   methods_doc = FALSE,
   table_caption = "Table 1. Descriptive statistics of the cohort.",
+  abbreviation_footnote = "Abbreviations: AAST, American Association for the Surgery of Trauma; GCS, Glasgow Coma Scale; MAP, mean arterial pressure; SBP, systolic blood pressure; DBP, diastolic blood pressure; HR, heart rate; ISS, Injury Severity Score; MTP, massive transfusion protocol; RBC, red blood cells; FFP, fresh frozen plasma; TXA, tranexamic acid; AKI, acute kidney injury; Cr, creatinine; ICU, intensive care unit; LOS, length of stay; ED, emergency department.",
   category_start = c(
     "Demographics"                    = "Age",
     "Injury Features and Vital Signs" = "AAST Grade",

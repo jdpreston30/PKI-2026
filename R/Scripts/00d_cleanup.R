@@ -1,6 +1,6 @@
 #* 0d: Data Cleanup
 #+ 0d.1: Joing with main dataset and clean
-raw_HG <- raw_HG_i |>
+raw_joined <- raw |>
   # Only grade 3+
   filter(grade >= 3) |>
   # Exclude early deaths from index success classification
@@ -50,19 +50,33 @@ raw_HG <- raw_HG_i |>
       Age = as.integer(Age)
     ) |>
     select(-Gender)
-#+ 0d.2: Cleanup and order data for subsequent tables
-table_data <- raw_HG |>
-  select(
+#+ 0d.2: Rename for table production
+raw_named <- raw_joined |>
+  rename(
     # Demographics
-    Age,
-    `Gender (Male)` = Gender_M, BMI,
+    `AAST Grade`           = grade,
+    `Gender (Male)`        = Gender_M,
     # Injury features and vital signs
-    `AAST Grade` = grade, GCS, MAP = MAP_calc, SBP = ED_SBP, DBP = ED_DBP, HR = ED_HR, ISS,
+    MAP                    = MAP_calc,
+    SBP                    = ED_SBP,
+    DBP                    = ED_DBP,
+    HR                     = ED_HR,
     # Lab values
-    initial_lactate, `Max Lactate (24 h)` = max_lactate_24h, initial_base_deficit,
+    `Max Lactate (24 h)`   = max_lactate_24h,
     # Blood products (24 h)
-    MTP = MTP_24h, RBC = RBC_24h, FFP = FFP_24h, Platelets = plt_24h, Cryoprecipitate = cryo_24h, `Whole Blood` = WB_24h, TXA,
+    MTP                    = MTP_24h,
+    RBC                    = RBC_24h,
+    FFP                    = FFP_24h,
+    Platelets              = plt_24h,
+    Cryoprecipitate        = cryo_24h,
+    `Whole Blood`          = WB_24h,
     # Clinical course
-    Survival = survived, `Renal Salvage` = renal_pres, `Index Mgmt. Success` = index_success, `Index Mgmt. Strategy` = index_group,
-    AKI, highest_Cr, `Ventilator Days` = vent_LOS, `ICU LOS` = surv_ICU_LOS, `Hospital LOS` = surv_hosp_LOS, `Return to ED (30 d)` = return_ed_30d
+    Survival               = survived,
+    `Renal Salvage`        = renal_pres,
+    `Index Management Success`  = index_success,
+    `Index Management Strategy` = index_group,
+    `Ventilator Days`      = vent_LOS,
+    `ICU LOS`              = surv_ICU_LOS,
+    `Hospital LOS`         = surv_hosp_LOS,
+    `Return to ED (30 d)`  = return_ed_30d
   )

@@ -4,9 +4,3 @@ ternB(
   methods_doc      = TRUE,
   methods_filename = "Tables/T1-T3-methods.docx"
 )
-
-
-  # table_footnote <- c(
-  #   "† Continuous variables expressed as median [IQR].",
-  #   "‡ P values from Kruskal-Wallis test with Dunn post-hoc correction."
-  # )

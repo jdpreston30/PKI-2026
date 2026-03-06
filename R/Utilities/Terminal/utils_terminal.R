@@ -4,12 +4,17 @@
 
 #' Compile Tables
 #'
-#' Runs the full table pipeline in sequence:
-#' 01_descriptive, 02_mgmt_stratify, 03_grade_stratify, 06_compile_tables.
+#' Runs the full pipeline from config load through table compilation.
 #'
 #' @examples
 #' ct()
 ct <- function() {
+  source("R/Utilities/Helpers/load_dynamic_config.R")
+  config <<- load_dynamic_config(computer = "auto", config_path = "All_Run/config_dynamic.yaml")
+  source("R/Scripts/00a_environment_setup.R")
+  source("R/Scripts/00b_setup.R")
+  source("R/Scripts/00c_import.R")
+  source("R/Scripts/00d_cleanup.R")
   source("R/Scripts/01_descriptive.R")
   source("R/Scripts/02_mgmt_stratify.R")
   source("R/Scripts/03_grade_stratify.R")

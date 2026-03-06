@@ -23,7 +23,7 @@ T2 <- ternG(
     "Injury Features and Vital Signs" = "AAST Grade",
     "Lab Values"                      = "Initial Lactate",
     "Blood Products (24 h)"           = "MTP",
-    "Clinical Course"                 = "Survival",
-    "Index Management Details"        = "Nephrectomy"
+    "Index Management Details"        = "Index Management Success",
+    "Clinical Course and Outcomes"    = "Survival"
   )
 )

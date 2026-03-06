@@ -45,15 +45,15 @@ T3 <- ternG(
   abbreviation_footnote = c("Abbreviations: AAST, American Association for the Surgery of Trauma; GCS, Glasgow Coma Scale; MAP, mean arterial pressure; SBP, systolic blood pressure; DBP, diastolic blood pressure; HR, heart rate; ISS, Injury Severity Score; MTP, massive transfusion protocol; RBC, red blood cells; FFP, fresh frozen plasma; TXA, tranexamic acid; PCN, percutaneous nephrostomy; AKI, acute kidney injury; Cr, creatinine; ICU, intensive care unit; LOS, length of stay; ED, emergency department."),
   variable_footnote = c(
     "Index Management Success" = "Defined as no further kidney-directed procedures or death following the index management strategy; however, nephrectomy at index procedure was not counted as successful index management.",
-    "Operative Management" = "Refers to index management strategy."
+    "Operative Intervention" = "Refers to index management strategy."
   ),
   category_start = c(
     "Demographics"                    = "Age",
-    "Injury Features and Vital Signs" = "GCS",
+    "Injury Features and Vital Signs" = "AAST Grade",
     "Lab Values"                      = "Initial Lactate",
     "Blood Products (24 h)"           = "MTP",
-    "Index Management Details"       = "Index Management Success",
-    "Clinical Course"                 = "Survival"
+    "Index Management Details"        = "Index Management Success",
+    "Clinical Course and Outcomes"    = "Survival"
   ),
   plain_header = c("Operative Intervention" = "Nephrectomy"),
   manual_italic_indent = c("Nephrectomy", "Renorrhaphy", "Topical Hemostatic", "Renal Packing", "Exploration Only")

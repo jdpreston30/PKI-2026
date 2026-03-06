@@ -24,14 +24,14 @@ salvage_succ_table <- bind_rows(
     mutate(Variable = if_else(Variable == "ALL", "All Management Strategies", Variable))
 )
 #+ 4.3: Export table
-T4 <- word_export(
-  tbl                  = salvage_succ_table,
-  filename             = "Outputs/Tables/T4_success_by_grade.docx",
-  table_caption        = "Table 4. Index management success and renal preservation stratified by AAST grade and index management strategy.",
-  manual_underline     = c("Index Management Success", "Renal Preservation"),
+T4 <- ternStyle(
+  tbl = salvage_succ_table,
+  filename = "Outputs/Tables/T4_success_by_grade.docx",
+  table_caption = "Table 4. Index management success and renal preservation ...",
+  subheader_rows = c("Index Management Success", "Renal Preservation"),
   manual_italic_indent = c(
     "Conservative Management", "Interventional Radiology",
     "Operative Management", "All Management Strategies"
   ),
-  font_size            = 9
+  font_size = 9
 )

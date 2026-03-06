@@ -416,7 +416,7 @@
     },
     "TernTables": {
       "Package": "TernTables",
-      "Version": "1.6.3.9013",
+      "Version": "1.6.3.9014",
       "Source": "GitHub",
       "Type": "Package",
       "Title": "Publication-Ready Summary Tables and Statistical Testing for Clinical Research",
@@ -461,7 +461,7 @@
       "RemoteUsername": "jdpreston30",
       "RemoteRepo": "TernTables",
       "RemoteRef": "main",
-      "RemoteSha": "71eb606114a20e904659f4bb5f1a7034b4e0c4e1"
+      "RemoteSha": "76f1f9441f795f141f792490ef06964e974554dc"
     },
     "abind": {
       "Package": "abind",

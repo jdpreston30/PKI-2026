@@ -17,7 +17,7 @@
 #'   values 3, 4, and 5.
 #'
 #' @return A tibble with one row per index management group plus an `"ALL"` row.
-#'   Columns are `index_group`, `All Grades`, `Grade 3`, `Grade 4`, `Grade 5`.
+#'   Columns are `index_group`, `Grade III`, `Grade IV`, `Grade V`, `All Grades`.
 #'   Each cell contains a string formatted as `"n/N (x%)"`.
 #'
 #' @examples
@@ -107,5 +107,7 @@ summarize_index_success <- function(data, outcome_col, stratify_col = grade) {
     total_g5
   )
 
-  bind_rows(summary_tbl, total_row)
+  bind_rows(summary_tbl, total_row) |>
+    rename(`Grade III` = `Grade 3`, `Grade IV` = `Grade 4`, `Grade V` = `Grade 5`) |>
+    select(index_group, `Grade III`, `Grade IV`, `Grade V`, `All Grades`)
 }

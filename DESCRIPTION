@@ -10,9 +10,15 @@ Imports:
     conflicted,
     cowplot,
     dplyr,
+    forcats,
+    magick,
     ggplot2,
+    pdftools,
+    png,
+    ragg,
     readxl,
     stringr,
     tibble,
+    tidyr,
     TernTables
 Encoding: UTF-8

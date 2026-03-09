@@ -1,11 +1,4 @@
 {
-  renv::remove("TernTables")
-  renv::install("jdpreston30/TernTables", prompt = FALSE)
-  renv::snapshot(prompt = FALSE)
-  packageVersion("TernTables")
-}
-
-{
 source("R/Utilities/Helpers/load_dynamic_config.R")
 config <- load_dynamic_config(computer = "auto", config_path = "All_Run/config_dynamic.yaml")
 source("R/Scripts/00a_environment_setup.R")
@@ -15,6 +8,8 @@ source("R/Scripts/00d_cleanup.R")
 source("R/Scripts/01_descriptive.R")
 source("R/Scripts/02_mgmt_stratify.R")
 source("R/Scripts/03_grade_stratify.R")
-# source("R/Scripts/04_success_by_grade.R")
-source("R/Scripts/06_compile_tables.R")
+source("R/Scripts/04_success_by_grade.R")
+source("R/Scripts/05_compile_tables.R")
+source("R/Scripts/06_figure.R")
+source("R/Scripts/07_render_figures.R")
 }

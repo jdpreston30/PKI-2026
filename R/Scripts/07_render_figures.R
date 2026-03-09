@@ -18,4 +18,4 @@ fig1 <- ggdraw(xlim = c(0, 8.5), ylim = c(0, 11)) +
     "Figure 1" = c(0.49,      10.43)
   ))
 #+ 7.3: Print PNG
-print_to_png(fig1+grdgd(), "fig1.png", output_dir = "Outputs/Figures/Final/PNG")
+print_to_png(fig1, "fig1.png", output_dir = "Outputs/Figures/Final/PNG")

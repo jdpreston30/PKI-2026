@@ -43,31 +43,31 @@ raw_joined <- raw |>
     "OR_K" = "Operative Management"
   )) |>
   # Mutate variables to NAs when early_death == "Y" to avoid confounding by early mortality
-    mutate(
-      renal_pres = if_else(death_24h == "Y", NA_character_, renal_pres),
-      AKI = if_else(death_24h == "Y", NA_character_, AKI),
-      highest_Cr = if_else(death_24h == "Y", NA_real_, highest_Cr),
-      return_ed_30d = if_else(death_24h == "Y", NA_character_, return_ed_30d),
-      surv_ICU_LOS = if_else(death_24h == "Y", NA_integer_, surv_ICU_LOS),
-      vent_LOS = if_else(death_24h == "Y", NA_integer_, vent_LOS),
-      surv_hosp_LOS = if_else(death_24h == "Y", NA_integer_, surv_hosp_LOS)
-    ) |>
-    # Convert appropriate variables to factors
-    mutate(across(
-      c(MTP_24h, TXA, index_success, index_group, survived, IR_max1_derived, death_24h, renorrhaphy1, renal_pack1, topical_hemo1, any_nephrectomy1, exploration_only1, renal_pres, AKI, return_ed_30d, AKI), factor
-    )) |>
-    # Specify factor levels
-    mutate(
-      Gender_M = factor(Gender, levels = c(1, 2), labels = c("N", "Y")),
-      grade = as.integer(grade),
-      GCS = as.integer(GCS),
-      ISS = as.integer(ISS),
-      surv_ICU_LOS = as.integer(surv_ICU_LOS),
-      vent_LOS = as.integer(vent_LOS),
-      surv_hosp_LOS = as.integer(surv_hosp_LOS),
-      Age = as.integer(Age)
-    ) |>
-    select(-Gender)
+  mutate(
+    renal_pres = if_else(death_24h == "Y", NA_character_, renal_pres),
+    AKI = if_else(death_24h == "Y", NA_character_, AKI),
+    highest_Cr = if_else(death_24h == "Y", NA_real_, highest_Cr),
+    return_ed_30d = if_else(death_24h == "Y", NA_character_, return_ed_30d),
+    surv_ICU_LOS = if_else(death_24h == "Y", NA_integer_, surv_ICU_LOS),
+    vent_LOS = if_else(death_24h == "Y", NA_integer_, vent_LOS),
+    surv_hosp_LOS = if_else(death_24h == "Y", NA_integer_, surv_hosp_LOS)
+  ) |>
+  # Convert appropriate variables to factors
+  mutate(across(
+    c(MTP_24h, TXA, index_success, index_group, survived, IR_max1_derived, death_24h, renorrhaphy1, renal_pack1, topical_hemo1, any_nephrectomy1, exploration_only1, renal_pres, AKI, return_ed_30d, AKI), factor
+  )) |>
+  # Specify factor levels
+  mutate(
+    Gender_M = factor(Gender, levels = c(1, 2), labels = c("N", "Y")),
+    grade = as.integer(grade),
+    GCS = as.integer(GCS),
+    ISS = as.integer(ISS),
+    surv_ICU_LOS = as.integer(surv_ICU_LOS),
+    vent_LOS = as.integer(vent_LOS),
+    surv_hosp_LOS = as.integer(surv_hosp_LOS),
+    Age = as.integer(Age)
+  ) |>
+  select(-Gender)
 #- 0d.1.2: Concordance check
 # IR_max1_derived (pipeline) vs IR_max1 (Excel); errors on any mismatch
 stopifnot(

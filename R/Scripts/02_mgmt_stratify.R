@@ -13,6 +13,7 @@ T2 <- ternG(
   show_total = FALSE,
   group_order = c("Conservative Management", "Interventional Radiology", "Operative Management"),
   table_font_size = 9,
+  post_hoc = TRUE,
   table_caption = "Table 2. Demographic, clinical, and clinical course data in high-grade penetrating kidney injury patients stratified by index management strategy. All values are displayed as n (%), median [IQR], or mean ± SD as appropriate. Nonoperative management included interventional radiology and serial monitoring/conservative management. Calculations for Renal Salvage, AKI, ventilator days, ICU LOS, hospital LOS, and return to ED excluded patients who did not survive the index hospitalization. p-values < 0.05 are printed in bold.",
   abbreviation_footnote = c("Abbreviations: AAST, American Association for the Surgery of Trauma; GCS, Glasgow Coma Scale; MAP, mean arterial pressure; SBP, systolic blood pressure; DBP, diastolic blood pressure; HR, heart rate; ISS, Injury Severity Score; MTP, massive transfusion protocol; RBC, red blood cells; FFP, fresh frozen plasma; TXA, tranexamic acid; AKI, acute kidney injury; Cr, creatinine; ICU, intensive care unit; LOS, length of stay; ED, emergency department."),
   variable_footnote = c(

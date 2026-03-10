@@ -14,14 +14,14 @@ T1_data <- raw_named |>
     `Index Management Success`, `Index Management Strategy`,
     # Clinical Course and Outcomes
     Survival, `Renal Salvage`, AKI, highest_Cr, `Ventilator Days`, `ICU LOS (d)`, `Hospital LOS (d)`, `Return to ED (30 d)`
-  )
+  ) |>
+  mutate(`AAST Grade` = fct_recode(factor(`AAST Grade`), "III" = "3", "IV" = "4", "V" = "5"))
 #+ 1.2: Create descriptive statistics table
 T1 <- ternD(
   data = T1_data,
   consider_normality = "ROBUST",
   round_intg = FALSE,
   table_font_size = 9,
-  force_ordinal = c("AAST Grade"),
   line_break_header = FALSE,
   methods_doc = FALSE,
   table_caption = "Table 1. Descriptive statistics of the cohort.",

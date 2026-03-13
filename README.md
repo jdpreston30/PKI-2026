@@ -21,7 +21,7 @@ PKI-2026/
 ├── Outputs/
 │   ├── Figures/
 │   │   ├── Raw/              # Intermediate figure assets (e.g., Python-generated PNG)
-│   │   └── Final/            # Compiled publication figures (PNG, PDF, TIFF)
+│   │   └── Final/            # Compiled publication figures
 │   └── Tables/               # Exported .docx tables
 ├── DESCRIPTION               # R package-style dependency declaration
 ├── requirements.txt          # Python dependency list (pip freeze)
@@ -84,10 +84,10 @@ All scripts live in `R/Scripts/` and are sourced sequentially by `All_Run/run.R`
 | `04_success_by_grade.R` | Index management success and renal preservation by grade | `T4` |
 | `05_compile_tables.R` | Combine T1–T4 into a single `.docx` via `TernTables::ternB()` | `Outputs/Tables/T1-T4.docx` |
 | `06_figure.R` | Call Python alluvial script; build stacked bar and line chart panels | `p1A`, `p1B`, `p1C` |
-| `07_render_figures.R` | Compose final Figure 1 and export PNG | `Outputs/Figures/Final/PNG/fig1.png` |
+| `07_render_figures.R` | Compose final Figure 1 and export PNG | `Outputs/Figures/Final/fig1.png` |
 
 **Tables:** Combined export → `Outputs/Tables/T1-T4.docx` (with auto-generated methods supplement)
-**Figures:** Intermediate assets → `Outputs/Figures/Raw/`; final publication figure → `Outputs/Figures/Final/`
+**Figures:** Intermediate assets → `Outputs/Figures/Raw/`; final publication figure → `Outputs/Figures/Final/fig1.png`
 
 ---
 
@@ -141,9 +141,9 @@ Meyer et al. *[Title]*. *American Journal of Surgery*. 2026 (In Review).
 
 ## 👥 Authors
 
-- **[First Author]** — First/Corresponding Author
+- **Courtney Meyer** — First/Corresponding Author (Emory University School of Medicine, Department of Surgery) [[ORCID]](https://orcid.org/0000-0002-1594-4157)
 - **Joshua D. Preston** — Data Science, Development, & Repository Maintainer (Emory University School of Medicine, Department of Surgery) ([@jdpreston30](https://github.com/jdpreston30)) [[ORCID]](https://orcid.org/0000-0001-9834-3017)
-- **[Senior Author]** — Senior Author
+- **Jonathan Nguyen** — Senior Author (Morehouse School of Medicine, Department of Surgery) [[ORCID]](https://orcid.org/0000-0002-4880-8418)
 
 ---
 
@@ -157,7 +157,9 @@ Raw data are **not included** in this repository. The deidentified dataset is av
 
 ## 📧 Contact
 
+- **Courtney Meyer:** courtney.meyer@emory.edu
 - **Joshua Preston:** joshua.preston@emory.edu
+- **Jonathan Nguyen:** jnguyen@msm.edu
 - **GitHub Repository:** [https://github.com/jdpreston30/PKI-2026](https://github.com/jdpreston30/PKI-2026)
 
 **Report bugs:** [GitHub Issues](https://github.com/jdpreston30/PKI-2026/issues)

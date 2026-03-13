@@ -7,21 +7,20 @@ system2(
   args = c(
     "-arm64",
     normalizePath(file.path(getwd(), ".venv/bin/python"), mustWork = FALSE),
-    shQuote(normalizePath("Python Scripts/alluvial.py")),
+    shQuote(normalizePath("R/Utilities/Visualization/alluvial_snap.py")),
     shQuote(config$paths$raw_data),
     shQuote(normalizePath("Outputs/Figures/Raw"))
   )
 )
 #- 5.1.2: Import and format edited version from BioRender stored in repo
 #! The original alluvial file was created in 5.1.1, exported as PNG, manually edited and formatted in BioRender, and then reimported for the compiled figure below.
-{
-  p1A <- grid::rasterGrob(
-    as.raster(magick::image_read("Outputs/Figures/Raw/p1A_raw.png")),
-    interpolate = FALSE
-  )
-  img_w <- 7.5
-  img_h <- img_w * (3493 / 5100)
-}
+p1A <- grid::rasterGrob(
+  as.raster(magick::image_flip(magick::image_resize(
+    magick::image_read("Outputs/Figures/Raw/alluvial_snap_unlabeled.png"),
+    "4125x3000!"
+  ))),
+  interpolate = FALSE
+)
 #+ 5.2: Generate Data for Figure Creation
 renal_pres_table <- raw_joined |>
   select(renal_pres, index_group, grade) |>

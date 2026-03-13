@@ -108,6 +108,62 @@ figure_labels <- function(labels, size = 14, fontface = "bold", fontfamily = "Ar
 
   return(label_layers)
 }
+#+ Alluvial annotations helper
+#' Place text annotations over alluvial diagram nodes using pixel coordinates
+#'
+#' @description
+#' Converts pixel coordinates (measured from the top-left of the output PNG)
+#' to cowplot canvas units and applies pre-set styling based on annotation type.
+#' Two types are supported:
+#'   - "column" : bold, size 12, centered — for column header labels
+#'   - "box"    : plain, size 10, centered — for within-node content labels
+#'
+#' @param annotations A list of named lists, each with:
+#'   \describe{
+#'     \item{text}{Label text (use \\n for line breaks)}
+#'     \item{x_px}{Pixel x position from the LEFT edge of the output PNG}
+#'     \item{y_px}{Pixel y position from the TOP edge of the output PNG}
+#'     \item{type}{Either "column" or "box"}
+#'   }
+#' @param canvas_w Canvas xlim width in inches (default 8.5)
+#' @param canvas_h Canvas ylim height in inches (default 11)
+#' @param dpi Output DPI used to convert pixels to inches (default 600)
+#' @param fontfamily Font family (default "Arial")
+#'
+#' @return A list of cowplot draw_label layers ready to be added with +
+#'
+#' @examples
+#' fig + alluvial_annotations(list(
+#'   list(text = "Injury\nGrade", x_px = 868, y_px = 731,  type = "column"),
+#'   list(text = "Grade\nIII\n(n=51)", x_px = 868, y_px = 1220, type = "box")
+#' ))
+#'
+#' @export
+alluvial_annotations <- function(annotations,
+                                  canvas_w = 8.5, canvas_h = 11,
+                                  dpi = 600, fontfamily = "Arial") {
+  total_px_h <- canvas_h * dpi   # e.g. 6600 px
+  styles <- list(
+    column = list(fontface = "bold",  size = 12),
+    box    = list(fontface = "plain", size = 8)
+  )
+  layers <- list()
+  for (ann in annotations) {
+    type       <- ann$type
+    style      <- styles[[type]]
+    x_can      <- ann$x_px / dpi
+    y_can      <- (total_px_h - ann$y_px) / dpi
+    lineheight <- if (!is.null(ann$lineheight)) ann$lineheight else 0.9
+    layers[[length(layers) + 1]] <- cowplot::draw_label(
+      ann$text,
+      x = x_can, y = y_can,
+      size = style$size, fontface = style$fontface,
+      fontfamily = fontfamily, hjust = 0.5, vjust = 0.5,
+      lineheight = lineheight
+    )
+  }
+  return(layers)
+}
 #+ Print plot to PNG with auto-refresh for macOS Preview
 #' Print plot to PNG with auto-refresh for macOS Preview
 #' @param plot The plot object to print

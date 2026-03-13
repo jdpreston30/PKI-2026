@@ -2,11 +2,7 @@
 
 ## Overview
 
-[ENTER BRIEF PROJECT DESCRIPTION HERE]
-
-**Status:** [In Progress / Under Review / Published]
-**Manuscript:** [Journal name, year — link when available]
-**Data repository:** [e.g. MetaboLights ID, if applicable]
+Retrospective analysis of penetrating renal injuries associated with the manuscript in review by the American Journal of Surgery by Meyer et al., 2026.
 
 ---
 
@@ -15,7 +11,6 @@
 - R ≥ 4.5.0
 - [renv](https://rstudio.github.io/renv/) for reproducible package management
 - TinyTeX for PDF/supplementary rendering (`tinytex::install_tinytex()`)
-- [Optional] Docker for fully containerised reproducibility
 
 ---
 
@@ -32,8 +27,6 @@ renv::restore()
 # 4. Run the full pipeline
 source("All_Run/run.R")
 ```
-
-See `QUICKSTART.txt` for complete onboarding instructions.
 
 ---
 

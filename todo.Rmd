@@ -1,3 +1,0 @@
--make order of ternG and ternD call arguments correct
-
-

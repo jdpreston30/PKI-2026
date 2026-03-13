@@ -79,3 +79,30 @@ if (!requireNamespace("tinytex", quietly = TRUE)) {
 } else {
   cat("TinyTeX OK.\n")
 }
+#+ 0a.7: Verify Python virtual environment for figure generation scripts
+py_bin <- normalizePath(file.path(getwd(), ".venv/bin/python"), mustWork = FALSE)
+if (!file.exists(py_bin)) {
+  stop(
+    "Python virtual environment not found (.venv/).\n",
+    "Run the following from the project root in Terminal:\n\n",
+    "  python3 -m venv .venv\n",
+    "  source .venv/bin/activate\n",
+    "  pip install -r requirements.txt\n"
+  )
+}
+pip_bin <- normalizePath(file.path(getwd(), ".venv/bin/pip"), mustWork = FALSE)
+py_pkgs <- c("kaleido", "pandas", "plotly", "openpyxl")
+py_missing <- py_pkgs[sapply(py_pkgs, function(pkg) {
+  system2(pip_bin, args = c("show", pkg),
+          stdout = FALSE, stderr = FALSE) != 0
+})]
+if (length(py_missing) > 0) {
+  stop(
+    "Python packages missing from .venv: ", paste(py_missing, collapse = ", "), "\n",
+    "Run the following from the project root in Terminal:\n\n",
+    "  source .venv/bin/activate\n",
+    "  pip install -r requirements.txt\n"
+  )
+} else {
+  cat("Python virtual environment verified. All packages available.\n")
+}

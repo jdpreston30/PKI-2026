@@ -1,7 +1,7 @@
 Type: Project
 Title: PKI-2026
 Authors@R: person("Joshua", "Preston", email = "joshua.preston@emory.edu", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9834-3017"))
-Description: [ENTER PROJECT DESCRIPTION HERE]
+Description: Retrospective analysis of penetrating renal injuries.
 URL: https://github.com/jdpreston30/PKI-2026
 Depends:
     R (>= 4.5.0)

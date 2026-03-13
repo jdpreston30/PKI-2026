@@ -1,12 +1,15 @@
 #* 5: Renal Pres by Index Grouping Figure
 #+ 5.1: Alluvial Diagram Raw Creation
 #- 5.1.1: Run Python script to generate alluvial PNG from raw data
+# arch -arm64 forces native Apple Silicon mode — R runs x86_64 (Rosetta), Python venv is arm64
 system2(
-  normalizePath(file.path(getwd(), ".venv/bin/python"), mustWork = FALSE),
+  "arch",
   args = c(
-    shQuote("Python Scripts/alluvial.py"),
+    "-arm64",
+    normalizePath(file.path(getwd(), ".venv/bin/python"), mustWork = FALSE),
+    shQuote(normalizePath("Python Scripts/alluvial.py")),
     shQuote(config$paths$raw_data),
-    shQuote("Outputs/Figures/Raw")
+    shQuote(normalizePath("Outputs/Figures/Raw"))
   )
 )
 #- 5.1.2: Import and format edited version from BioRender stored in repo

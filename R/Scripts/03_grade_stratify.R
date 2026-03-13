@@ -9,7 +9,7 @@ T3_data <- raw_named |>
     # Injury features and vital signs
     GCS, MAP, SBP, DBP, HR, ISS,
     # Lab values
-    initial_lactate, `Max Lactate (24 h)`, initial_base_deficit,
+    initial_lactate, `Maximum Lactate (24 h)`, initial_base_deficit,
     # Blood products (24 h)
     MTP, RBC, FFP, Platelets, Cryoprecipitate, `Whole Blood`, TXA,
     # Index management details

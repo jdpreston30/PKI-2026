@@ -1,7 +1,7 @@
 #* 7: Render Figures
 #+ 7.1: Ensure output directory exists
 if (!dir.exists("Outputs/Figures/Final/PNG")) dir.create("Outputs/Figures/Final/PNG", recursive = TRUE)
-#+ 7.2: Figure 1 — Renal Preservation (1A alluvial + 1B stacked bar + 1C line chart)
+#+ 7.2: Figure 1 — Renal Salvage (1A alluvial + 1B stacked bar + 1C line chart)
 # Reference proportions: "Figure 1" y=10.43, panel letters y=10.047,
 # plot top edge ~10.15 (letters just below), plots height ~2.75
 fig1 <- ggdraw(xlim = c(0, 8.5), ylim = c(0, 11)) +

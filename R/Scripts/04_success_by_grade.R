@@ -15,15 +15,15 @@ salvage_succ_table <- bind_rows(
   tibble(Variable = "Index Management Success", `Grade III` = "", `Grade IV` = "", `Grade V` = "", `All Grades` = ""),
   index_success_table |> rename(Variable = index_group) |> select(-variable) |>
     mutate(Variable = if_else(Variable == "ALL", "All Management Strategies", Variable)),
-  tibble(Variable = "Renal Preservation", `Grade III` = "", `Grade IV` = "", `Grade V` = "", `All Grades` = ""),
+  tibble(Variable = "Renal Salvage", `Grade III` = "", `Grade IV` = "", `Grade V` = "", `All Grades` = ""),
   renal_salvage_table |> rename(Variable = index_group) |> select(-variable) |>
     mutate(Variable = if_else(Variable == "ALL", "All Management Strategies", Variable))
 )
 #+ 4.3: Export table
 T4 <- ternStyle(
   tbl = salvage_succ_table,
-  table_caption = "Table 4. Index management success and renal preservation stratified by index management strategy and injury grade.",
-  subheader_rows = c("Index Management Success", "Renal Preservation"),
+  table_caption = "Table 4. Index management success and renal salvage stratified by index management strategy and injury grade.",
+  subheader_rows = c("Index Management Success", "Renal Salvage"),
   manual_italic_indent = c(
     "Conservative Management", "Interventional Radiology",
     "Operative Management", "All Management Strategies"

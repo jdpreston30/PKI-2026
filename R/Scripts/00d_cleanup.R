@@ -89,7 +89,7 @@ raw_named <- raw_joined |>
     DBP                    = ED_DBP,
     HR                     = ED_HR,
     # Lab values
-    `Max Lactate (24 h)`   = max_lactate_24h,
+    `Maximum Lactate (24 h)` = max_lactate_24h,
     # Blood products (24 h)
     MTP                    = MTP_24h,
     RBC                    = RBC_24h,

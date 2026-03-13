@@ -1,6 +1,6 @@
-#' Stacked Bar Chart: Renal Preservation by AAST Grade and Management Group
+#' Stacked Bar Chart: Renal Salvage by AAST Grade and Management Group
 #'
-#' Creates a stacked bar chart of renal preservation counts (Y/N) faceted by
+#' Creates a stacked bar chart of renal salvage counts (Y/N) faceted by
 #' index management group (CM, IR, OR) with bars per AAST grade (III, IV, V).
 #' N (not preserved) stacked on top in red; Y (preserved) on bottom in blue.
 #'
